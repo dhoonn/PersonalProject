@@ -6,46 +6,42 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
 <style>
 body {
-	margin: 0;
-	font-size: 28px;
+	/* margin: 0; */
+	/* font-size: 28px; */
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 #navbar {
 	overflow: hidden;
-	background-color: white;
+	/* background-color: white; */
 	padding: 20px;
 }
 
 #navbar a {
 	float: left;
 	display: block;
-	color: black;
+	/* color: black; */
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
-	font-size: 17px;
-}
-
-.topnav input[type=text] {
-	padding: 6px;
-	margin-top: 8px;
-	font-size: 17px;
+	font-size: 20px;
 	border: none;
 }
 
 #navbar a:hover {
-	background-color: #ddd;
-	color: black;
-	border-radius: 40px;
+	/* background-color: #ddd; */
+	/* color: black; */
+	/* border-radius: 40px; */
+	
 }
 
 #navbar a.active {
-	background-color: black;
-	border-radius: 40px;
+	/* background-color: black; */
+	/* border-radius: 40px; */
 	color: white;
 }
 
@@ -67,6 +63,7 @@ img {
 	column-width: 252px;
 	column-gap: 15px;
 	padding: 40px;
+	padding-top: 10%;
 }
 
 #columns figure {
@@ -89,18 +86,24 @@ img {
 #search input {
 	
 }
-
+li{
+	float:left;
+	list-style:none;
+}
 #search {
-	background-image: url(/images/search-icon.png);
+	background-image: url(images/search-icon.png);
 	background-position: 5px center;
 	padding-left: 40px;
-	border: 1px solid #2e3238;
+	/* border: 1px solid #2e3238; */
 	width: 100%;
 	height: 30px;
 	box-sizing: border-box;
 	outline: none;
 	background-repeat: no-repeat;
-	font-size: 17px;
+	font-size: 20px;
+}
+#searchbar{
+	padding:10px;
 }
 </style>
 </head>
@@ -110,98 +113,98 @@ img {
 
 
 	<div id="navbar">
+		<ul>
+			<li><a class="active" id="test" href="boardmain">Home</a></li>
+			<li><a href="javascript:void(0)">Follow</a></li>
+			<li class="searchbar"><div class="search-container">
 
-		<a class="active" href="home">Home</a> <a href="javascript:void(0)">News</a>
-		<div class="search-container">
-
-			<form action="/action_page.php">
-				<input type="text" placeholder="Search.." name="search" id="search"
-					style="width: 65%; float: left; border-radius: 10px; background-color: #ddd;"
-					autocapitalize="off" autocomplete="off">
-			</form>
-		</div>
-		
+					<form action="/action_page.php">
+						<input type="text" placeholder="Search.." name="search"
+							id="search" style="width: 65%; border-radius: 10px;"
+							autocapitalize="off" autocomplete="off">
+					</form>
+				</div></li>
+			<li><a href="javascript:void(0)">Follow</a></li>
+			<li><a href="javascript:void(0)">Follow</a></li>
+		</ul>
 
 	</div>
-	<div class="header">
+	<!-- <div class="header">
 		<h2>Scroll Down</h2>
 		<p>Scroll down to see the sticky effect.</p>
-	</div>
-<c:forEach var="board" items="${boardList}">
+	</div> -->
+	<%-- <c:forEach var="board" items="${boardList}"> --%>
 	<div id="columns">
 		<figure>
-			<img
-				src="/C:\Users\owner\git\repository\PProject\WebContent\images/1.jpg">
+			<img src="images/1.jpg">
 		</figure>
 		<figure>
-			<img
-				src="C:\Users\owner\git\repository\PProject\WebContent\images/2.jpg">
+			<img src="images/2.jpg">
 		</figure>
 		<figure>
-			<img src="/images/3.jpg">
+			<img src="images/thumbs/01.jpg">
 		</figure>
 		<figure>
-			<img src="/images/4.jpg">
+			<img src="images/4.jpg">
 		</figure>
 		<figure>
-			<img src="/images/5.jpg">
+			<img src="images/5.jpg">
 		</figure>
 		<figure>
-			<img src="/images/6.jpg">
+			<img src="images/6.jpg">
 		</figure>
 		<figure>
-			<img src="/images/7.jpg">
+			<img src="images/7.jpg">
 		</figure>
 		<figure>
-			<img src="/images/8.jpg">
+			<img src="images/8.jpg">
 		</figure>
 		<figure>
-			<img src="/images/9.jpg">
+			<img src="images/9.jpg">
 		</figure>
 		<figure>
-			<img src="/images/6.jpg">
+			<img src="images/6.jpg">
 		</figure>
 		<figure>
-			<img src="/images/9.jpg">
+			<img src="images/9.jpg">
 		</figure>
 		<figure>
-			<img src="/images/9.jpg">
+			<img src="images/9.jpg">
 		</figure>
 		<figure>
-			<img src="/images/6.jpg">
+			<img src="images/6.jpg">
 		</figure>
 		<figure>
-			<img src="/images/9.jpg">
+			<img src="images/9.jpg">
 		</figure>
 		<figure>
-			<img src="/images/9.jpg">
+			<img src="images/9.jpg">
 		</figure>
 		<figure>
-			<img src="/images/9.jpg">
+			<img src="images/9.jpg">
 		</figure>
 		<figure>
-			<img src="/images/12.jpg">
+			<img src="images/12.jpg">
 		</figure>
 		<figure>
-			<img src="/images/검술명가 막내아들2.jpg">
+			<img src="images/검술명가 막내아들2.jpg">
 		</figure>
 		<figure>
-			<img src="/images/신의탑.jpg">
+			<img src="images/신의탑.jpg">
 		</figure>
 		<figure>
-			<img src="/images/전생검신.jpg">
+			<img src="images/전생검신.jpg">
 		</figure>
 		<figure>
-			<img src="/images/호랑이형님.jpg">
+			<img src="images/호랑이형님.jpg">
 		</figure>
 		<figure>
-			<img src="/images/13.png">
+			<img src="images/13.png">
 		</figure>
-		<figure>
-			${board. bfile}
+		<figure>${board.bfile}
 		</figure>
 	</div>
-		</c:forEach>
+	<%-- </c:forEach> --%>
 
 
 	<script>

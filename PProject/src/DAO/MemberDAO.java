@@ -59,5 +59,28 @@ public class MemberDAO {
 		}
 		return joinResult;
 	}
+
+	public boolean boardLogin(String mid, String mpassword) {
+		String sql = "SELECT * FROM MEMBER WHERE MID=? AND MPASSWORD=?";
+		boolean loginresult = false;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			pstmt.setString(2, mpassword);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				loginresult = true;
+			}else {
+				loginresult = false;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			rsClose();
+			pstmtClose();
+		}
+		return loginresult;
+	}
 	
 }
