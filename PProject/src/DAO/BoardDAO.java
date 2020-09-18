@@ -70,6 +70,27 @@ public class BoardDAO {
 		}
 		return boardList;
 	}
+
+	public int boardWrite(BoardDTO board) {
+		String sql = "INSERT INTO BOARD(BNUMBER,BWRITER,BTITLE,BCONTENT,BCATEGORY,BFILE,BDATE,BLIKE,BHITS)"
+				+"VALUES(SEQ_BOARD.NEXTVAL,?,?,?,?,?,SYSDATE,0,0)";
+	int writeResult = 0;
+	try {
+		pstmt=con.prepareStatement(sql);
+		pstmt.setString(1, board.getBwriter());
+		pstmt.setString(2, board.getBtitle());
+		pstmt.setString(3, board.getBcontent());
+		pstmt.setString(4, board.getBcategory());
+		pstmt.setString(5, board.getBfile());
+		writeResult = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		pstmtClose();
+	}
+	return writeResult;
+
+	}
 	
 
 }

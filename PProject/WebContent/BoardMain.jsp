@@ -102,8 +102,14 @@ li{
 	background-repeat: no-repeat;
 	font-size: 20px;
 }
-#searchbar{
-	padding:10px;
+
+.navbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
 }
 </style>
 </head>
@@ -114,20 +120,18 @@ li{
 
 	<div id="navbar">
 		<ul>
-			<li><a class="active" id="test" href="boardmain">Home</a></li>
+			<li><a class="active" href="boardmain">Home</a></li>
 			<li><a href="javascript:void(0)">Follow</a></li>
-			<li class="searchbar"><div class="search-container">
+			<li><a href="BoardWrite.jsp">New</a></li>
+		</ul>	
+				<div class="search-container">
 
 					<form action="/action_page.php">
 						<input type="text" placeholder="Search.." name="search"
 							id="search" style="width: 65%; border-radius: 10px;"
 							autocapitalize="off" autocomplete="off">
 					</form>
-				</div></li>
-			<li><a href="javascript:void(0)">Follow</a></li>
-			<li><a href="javascript:void(0)">Follow</a></li>
-		</ul>
-
+				</div>
 	</div>
 	<!-- <div class="header">
 		<h2>Scroll Down</h2>
