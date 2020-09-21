@@ -55,10 +55,9 @@ body {
 	padding-top: 60px;
 }
 
-img {
+/* img {
 	border-radius: 20px;
-}
-
+} */
 #columns {
 	column-width: 252px;
 	column-gap: 15px;
@@ -75,7 +74,7 @@ img {
 }
 
 #columns figure img {
-	width: 100%;
+	width: 273px;
 }
 
 #columns figure figcaption {
@@ -83,13 +82,15 @@ img {
 	margin-top: 11px;
 }
 
-#search input {
-	
+#columns a {
+	border: none;
 }
-li{
-	float:left;
-	list-style:none;
+
+li {
+	float: left;
+	list-style: none;
 }
+
 #search {
 	background-image: url(images/search-icon.png);
 	background-position: 5px center;
@@ -104,14 +105,21 @@ li{
 }
 
 .navbar input[type=text] {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
+	float: right;
+	padding: 6px;
+	border: none;
+	margin-top: 8px;
+	margin-right: 16px;
+	font-size: 17px;
 }
 </style>
+<script>
+	function showPopup(number) {
+		window.open("boardview?bnumber=" + number, "a",
+				"width=400, height=300, left=100, top=50");
+	}
+</script>
+
 </head>
 
 <body>
@@ -123,22 +131,35 @@ li{
 			<li><a class="active" href="boardmain">Home</a></li>
 			<li><a href="javascript:void(0)">Follow</a></li>
 			<li><a href="BoardWrite.jsp">New</a></li>
-		</ul>	
-				<div class="search-container">
+		</ul>
+		<div class="search-container">
 
-					<form action="/action_page.php">
-						<input type="text" placeholder="Search.." name="search"
-							id="search" style="width: 65%; border-radius: 10px;"
-							autocapitalize="off" autocomplete="off">
-					</form>
-				</div>
+			<form action="/action_page.php">
+				<input type="text" placeholder="Search.." name="search" id="search"
+					style="width: 65%; border-radius: 10px;" autocapitalize="off"
+					autocomplete="off">
+			</form>
+		</div>
 	</div>
 	<!-- <div class="header">
 		<h2>Scroll Down</h2>
 		<p>Scroll down to see the sticky effect.</p>
 	</div> -->
-	<%-- <c:forEach var="board" items="${boardList}"> --%>
 	<div id="columns">
+		<c:forEach var="board" items="${boardList}">
+			<figure class="thumbnails">
+				<a href="" onclick="showPopup('${board.bnumber}');"> <img src="images/${board.bfile}">
+				</a>
+
+
+			</figure>
+		</c:forEach>
+		<figure class="thumbnails">
+		<a href="images/fulls/05.jpg"> <img src="images/thumbs/05.jpg"
+			alt="" />
+			<h3>Lorem ipsum dolor sit amet</h3>
+		</a>
+		</figure>
 		<figure>
 			<img src="images/1.jpg">
 		</figure>
@@ -197,18 +218,12 @@ li{
 			<img src="images/신의탑.jpg">
 		</figure>
 		<figure>
-			<img src="images/전생검신.jpg">
-		</figure>
-		<figure>
 			<img src="images/호랑이형님.jpg">
 		</figure>
 		<figure>
 			<img src="images/13.png">
 		</figure>
-		<figure>${board.bfile}
-		</figure>
 	</div>
-	<%-- </c:forEach> --%>
 
 
 	<script>
@@ -227,7 +242,11 @@ li{
 			}
 		}
 	</script>
-
+	<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/main.js"></script>
 </body>
 
 </html>

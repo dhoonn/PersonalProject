@@ -73,7 +73,7 @@ public class BoardDAO {
 
 	public int boardWrite(BoardDTO board) {
 		String sql = "INSERT INTO BOARD(BNUMBER,BWRITER,BTITLE,BCONTENT,BCATEGORY,BFILE,BDATE,BLIKE,BHITS)"
-				+"VALUES(SEQ_BOARD.NEXTVAL,?,?,?,?,?,SYSDATE,0,0)";
+				+"VALUES(BOARD_SEQ.NEXTVAL,?,?,?,?,?,SYSDATE,0,0)";
 	int writeResult = 0;
 	try {
 		pstmt=con.prepareStatement(sql);
@@ -90,6 +90,44 @@ public class BoardDAO {
 	}
 	return writeResult;
 
+	}
+
+	public void boardHits(int bnumber) {
+		String sql = "UPDATE BOARD SET BHITS=BHITS+1 WHERE BNUMBER=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bnumber);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public BoardDTO boardView(int bnumber) {
+		String sql = "SELECT * FROM BOARD WHERE BNUMBER=?";
+		BoardDTO boardView = null;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, bnumber);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				boardView = new BoardDTO();
+				boardView.setBnumber(rs.getInt("BNUMBER"));
+				boardView.setBwriter(rs.getString("BWRITER"));
+				boardView.setBtitle(rs.getString("BTITLE"));
+				boardView.setBcontent(rs.getString("BCONTENT"));
+				boardView.setBdate(rs.getDate("BDATE"));
+				boardView.setBfile(rs.getString("BFILE"));
+				boardView.setBhits(rs.getInt("BHITS"));
+				boardView.setBlike(rs.getInt("BLIKE"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			pstmtClose();
+			rsClose();
+		}
+		return boardView;
 	}
 	
 
