@@ -114,9 +114,18 @@ li {
 }
 </style>
 <script>
+
+
 	function showPopup(number) {
+var popupX = (window.screen.width / 2) - (1000 / 2);
+//만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+var popupY= (window.screen.height /2) - (500 / 2);
+//만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+
 		window.open("boardview?bnumber=" + number, "a",
-				"width=400, height=300, left=100, top=50");
+				"status=no, height=600, width=1000, left="+ popupX + ', top='+ popupY + ', screenX='+ popupX + ', screenY= '+ popupY);
+				
 	}
 </script>
 
@@ -155,74 +164,10 @@ li {
 			</figure>
 		</c:forEach>
 		<figure class="thumbnails">
-		<a href="images/fulls/05.jpg"> <img src="images/thumbs/05.jpg"
-			alt="" />
-			<h3>Lorem ipsum dolor sit amet</h3>
+		<a href="images/fulls/05.jpg"> <img src="images/thumbs/05.jpg">
 		</a>
 		</figure>
-		<figure>
-			<img src="images/1.jpg">
-		</figure>
-		<figure>
-			<img src="images/2.jpg">
-		</figure>
-		<figure>
-			<img src="images/thumbs/01.jpg">
-		</figure>
-		<figure>
-			<img src="images/4.jpg">
-		</figure>
-		<figure>
-			<img src="images/5.jpg">
-		</figure>
-		<figure>
-			<img src="images/6.jpg">
-		</figure>
-		<figure>
-			<img src="images/7.jpg">
-		</figure>
-		<figure>
-			<img src="images/8.jpg">
-		</figure>
-		<figure>
-			<img src="images/9.jpg">
-		</figure>
-		<figure>
-			<img src="images/6.jpg">
-		</figure>
-		<figure>
-			<img src="images/9.jpg">
-		</figure>
-		<figure>
-			<img src="images/9.jpg">
-		</figure>
-		<figure>
-			<img src="images/6.jpg">
-		</figure>
-		<figure>
-			<img src="images/9.jpg">
-		</figure>
-		<figure>
-			<img src="images/9.jpg">
-		</figure>
-		<figure>
-			<img src="images/9.jpg">
-		</figure>
-		<figure>
-			<img src="images/12.jpg">
-		</figure>
-		<figure>
-			<img src="images/검술명가 막내아들2.jpg">
-		</figure>
-		<figure>
-			<img src="images/신의탑.jpg">
-		</figure>
-		<figure>
-			<img src="images/호랑이형님.jpg">
-		</figure>
-		<figure>
-			<img src="images/13.png">
-		</figure>
+		
 	</div>
 
 

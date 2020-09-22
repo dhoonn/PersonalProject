@@ -129,6 +129,19 @@ public class BoardDAO {
 		}
 		return boardView;
 	}
+
+	public void boardLike(int bnumber) {
+		String sql = "UPDATE BOARD SET BLIKE=BLIKE+1 WHERE BNUMBER=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bnumber);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+		
+	
 	
 
 }
